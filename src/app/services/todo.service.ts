@@ -25,7 +25,11 @@ export class TodoService {
     const url = `${this.todosURL}/${todo.id}`;
     return this.http.delete<Todo>(url,httpOptions);
   }
-
+  
+  addTodo(todo:Todo):Observable<Todo>{
+    const url = `${this.todosURL}/${todo.id}`;
+    return this.http.post<Todo>(this.todosURL, todo, httpOptions);
+  }
   toggleCompleted(todo):Observable<any>{
     const url = `${this.todosURL}/${todo.id}`;
     return this.http.put(url,todo,httpOptions);
